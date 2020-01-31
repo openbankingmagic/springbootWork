@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HOME</title>
+</head>
+<body>
+<h1>Hello에 오신 것을 환영합니다.</h1>
+<a href="javascript:void(0)" id="hello-href">hello페이지 이동 -href</a><br/>
+<button id="hello-button">hello 페이지로 이동-button</button><br/>
+<form>
+	<input type="hidden" name="id" value="ssar"/>	
+</form>
+	<button id="hello-form">hello 페이지 이동-form</button><br/>
+</body>
+</html>

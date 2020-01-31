@@ -1,0 +1,24 @@
+package com.cos.springboot.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/home")
+public class HomeController {
+
+	// localhost:8080/home/
+	// localhost:8080/home
+	@GetMapping({ "", "/" })
+	public String Home() {
+		return "home";
+	}
+
+	// localhost:8080/home/hello
+	@PostMapping("/hello")
+	public String hello() {
+		return "hello";
+	}
+}

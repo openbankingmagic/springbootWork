@@ -1,0 +1,9 @@
+package com.cos.springboot.dto;
+
+import lombok.Data;
+
+@Data
+public class ResponseData {
+	private int statusCode;
+	private String msg;
+}
