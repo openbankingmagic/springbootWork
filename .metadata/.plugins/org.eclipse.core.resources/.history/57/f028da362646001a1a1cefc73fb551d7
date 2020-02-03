@@ -1,0 +1,6 @@
+package com.cos.springboot.repository;
+
+// MapperScan에 의해서 메모리에 로드됨.
+public interface MemRepository {
+
+}

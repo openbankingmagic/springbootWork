@@ -1,0 +1,32 @@
+package com.cos.springboot.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.cos.springboot.dto.RequestMemJoinDto;
+import com.cos.springboot.repository.MemRepository;
+
+@Controller
+public class MemController {
+
+	@Autowired
+	private MemRepository memRepository;
+	
+	// username, password, email
+	@PostMapping("/mem/api/join")
+	public @ResponseBody int memApiJoin(@RequestBody RequestMemJoinDto requestMemJoinDto) {
+		
+		int result = memRepository.save(requestMemJoinDto);
+		
+		if(result == 1) {
+			return 200; // 뷰리졸브가 컨트롤러 타서 인식함 그래서 인트 앞에 리스폰스바디 붙여야
+		}else {
+			return 500;
+		}
+		
+		
+	}
+}

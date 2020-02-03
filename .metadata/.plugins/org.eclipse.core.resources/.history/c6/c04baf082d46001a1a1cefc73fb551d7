@@ -1,0 +1,18 @@
+package com.cos.springboot.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@Controller
+public class MemController {
+
+	// username, password, email
+	@PostMapping("/mem/api/join")
+	public int memApiJoin(@RequestBody ) {
+		
+		
+		
+		return 200;
+	}
+}
