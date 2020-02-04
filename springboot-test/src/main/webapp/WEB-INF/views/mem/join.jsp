@@ -39,9 +39,9 @@
 				url : '/mem/api/join',
 				data : JSON.stringify(data),
 				contentType : 'application/json; charset=utf-8',
-				dataType : 'text'
+				dataType : 'json'
 			}).done(function(result) {
-				if (result === 'ok') {
+				if (result.msg === 'ok') {
 					alert('회원가입 성공');
 					location.href = '/mem';
 				} else {

@@ -8,6 +8,7 @@
 <title>회원목록 페이지</title>
 </head>
 <body>
+<img src="/media/cat.png">
 	<table border="/">
 		<tr>
 			<th>username</th>
