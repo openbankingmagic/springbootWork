@@ -44,11 +44,11 @@
 			url : '/goods',
 			data : JSON.stringify(data),
 			contentType : 'application/json; charset=utf-8',
-			dataType : 'json'
+			dataType : 'text'
 		}).done(function(result) {
-			if (result.msg === 'ok') {
+			if (result === 'ok') {
 				alert('상품입력 성공');
-				location.href = '/goods/list';
+				location.href = '/';
 			} else {
 				alert('상품입력 실패');
 			}

@@ -27,7 +27,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<button id="pro_insert_proc">상품추가</button>
+	<button onclick="insert()">회원가입</button>
 	<button id="pro_insert_proc">전체보기</button>
 	<button id="pro_insert_proc">주방용품</button>
 	<button id="pro_insert_proc">정육</button>
@@ -40,7 +40,7 @@
 
 	<script>
 		function insert(){
-			location.href='/';
+			location.href='/goods/';
 			}
 	
 		function pro_update(pro_id){

@@ -39,14 +39,14 @@ public class ListController {
 		return "goods/list";
 	}
 	@PostMapping("/goods")
-	public @ResponseBody int proInsert(@RequestBody ReqProInsertDto reqProInsertDto) {
+	public @ResponseBody String proInsert(@RequestBody ReqProInsertDto reqProInsertDto) {
 		
 		int result = proRepository.save(reqProInsertDto);
 		
 		if(result == 1) {
-			return 200; // 뷰리졸브가 컨트롤러 타서 인식함 그래서 인트 앞에 리스폰스바디 붙여야
+			return "ok"; // 뷰리졸브가 컨트롤러 타서 인식함 그래서 인트 앞에 리스폰스바디 붙여야
 		}else {
-			return 500;
+			return "fail";
 		}
 		
 		
