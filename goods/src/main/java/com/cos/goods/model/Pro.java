@@ -10,15 +10,15 @@ public class Pro {
 	private int id;
 	private String name;
 	private int price;
-	private int ordercount;
+	private int orderCount; 
 	private String type;
 	
 	@Builder
-	public Pro(int id, String name, int price, int ordercount, String type) {
+	public Pro(int id, String name, int price, int orderCount, String type) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.ordercount = ordercount;
+		this.orderCount = orderCount;
 		this.type = type;
 	}
 }

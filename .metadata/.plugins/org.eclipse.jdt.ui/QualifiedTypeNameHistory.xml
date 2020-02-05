@@ -6,10 +6,8 @@
 <fullyQualifiedTypeName name="com.cos.springboot.dto.RequestUsernameDto"/>
 <fullyQualifiedTypeName name="com.cos.springboot.dto.RequestMemberDto"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="lombok.Getter"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.cos.springboot.repository.MemRepository"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 <fullyQualifiedTypeName name="com.cos.springboot.dto.RequestMemUpdateDto"/>
@@ -22,8 +20,6 @@
 <fullyQualifiedTypeName name="com.cos.springboot.dto.RequestMemDeleteDto"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
-<fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
 <fullyQualifiedTypeName name="javax.xml.ws.BindingType"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="org.springframework.boot.context.properties.bind.BindResult"/>
@@ -32,9 +28,6 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-<fullyQualifiedTypeName name="lombok.Data"/>
-<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-<fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
 <fullyQualifiedTypeName name="com.cos.springboot.dto.ResponseDto"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
@@ -44,10 +37,22 @@
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.nio.file.Paths"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
-<fullyQualifiedTypeName name="lombok.Builder"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.resource.PathResourceResolver"/>
 <fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
+<fullyQualifiedTypeName name="lombok.Getter"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.cos.goods.model.Pro"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
+<fullyQualifiedTypeName name="com.cos.goods.dto.ReqProInsertDto"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+<fullyQualifiedTypeName name="lombok.Builder"/>
+<fullyQualifiedTypeName name="com.cos.goods.dto.ReqProUpdateDto"/>
+<fullyQualifiedTypeName name="lombok.Data"/>
+<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+<fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
 </qualifiedTypeNameHistroy>

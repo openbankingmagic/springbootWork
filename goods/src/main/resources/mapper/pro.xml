@@ -4,26 +4,53 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cos.goods.repository.ProRepository">
 
-  <select id="findAll" resultType="com.cos.goods.model.Pro">
-    select * from product order by id desc
-  </select>
-  
-  <select id="findById" resultType="com.cos.goods.model.Pro">
-    select * from product where id = #{id}
-  </select> 
-  
-  <insert id="save">
-  	insert into product(name, price, ordercount, type)
-  	values(#{name}, #{price}, #{ordercount}, #{type})
-  </insert>
-  
-  <update id="update">
-  	update product set price=#{price}, ordercount=#{ordercount}
-	where id = #{id}
-  </update>
-  
-  <delete id="delete">
-  	delete from product where id = #{id}
-  </delete>
-  
+	<select id="findAll" resultType="com.cos.goods.model.Pro">
+		select * from product order by id desc
+	</select>
+
+	<select id="findById" resultType="com.cos.goods.model.Pro">
+		select * from product where id = #{id}
+	</select>
+
+	<insert id="save">
+		insert into product(name, price, ordercount, type)
+		values(#{name}, #{price}, #{ordercount}, #{type})
+	</insert>
+
+	<select id="findByType" resultType="com.cos.goods.model.Pro">
+		select * from product where
+		type = #{type}
+	</select>
+	
+	<select id="findBySort" resultType="com.cos.goods.model.Pro">
+		select * from product order by
+		#{sort} asc
+	</select>
+
+	<select id="findByPriceType" resultType="com.cos.goods.model.Pro">
+		select * from goods.product where type = #{type} order by price asc
+	</select>
+
+	<select id="findByOrderType" resultType="com.cos.goods.model.Pro">
+		select * from goods.product where type = #{type} order by ordercount asc
+	</select>
+
+	<select id="findByPrice" resultType="com.cos.goods.model.Pro">
+		select * from goods.product order by price asc
+	</select>
+	
+	<select id="findByOrdercount" resultType="com.cos.goods.model.Pro">
+		select * from goods.product order by ordercount asc
+	</select>
+
+	<update id="update">
+		update product set name=#{name}, price=#{price}, ordercount=#{ordercount},
+		type=#{type}
+		where id = #{id}
+	</update>
+
+	<delete id="delete">
+		delete from product where id = #{id}
+	</delete>
+
 </mapper>

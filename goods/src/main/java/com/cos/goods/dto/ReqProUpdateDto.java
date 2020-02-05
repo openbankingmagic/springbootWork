@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class ReqProUpdateDto {
 	
 	private int id;
+	private String name;
 	private int price;
 	private int ordercount;
+	private String type;
 }

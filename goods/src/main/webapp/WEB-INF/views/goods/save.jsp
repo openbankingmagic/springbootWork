@@ -27,6 +27,7 @@
 		
 	</table>
 	<button id="pro_insert_proc">상품추가</button>
+	<button onclick="back()">취소</button>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -56,6 +57,11 @@
 			alert('서버 오류');
 		});
 	});
+
+	function back(){
+		location.href='/';
+		}
+
 	
 		function pro_update(pro_id){
 			location.href = '/'+pro_id;	

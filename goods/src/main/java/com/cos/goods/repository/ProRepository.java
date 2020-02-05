@@ -17,4 +17,17 @@ public interface ProRepository {
 	int update(ReqProUpdateDto dto);
 	//  상품삭제
 	int delete(int id);
+	// 상품별
+	List<Pro> findByType(String type);
+	// 정렬
+	List<Pro> findBySort(String sort);
+	// 주문별
+	List<Pro> findByOrdercount();
+	// 가격별
+	List<Pro> findByPrice();
+	// 가격 과 타입
+	List<Pro> findByPriceType(String type);
+	// 주문 과 타입
+	List<Pro> findByOrderType(String type);
+	
 }

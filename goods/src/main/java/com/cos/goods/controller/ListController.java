@@ -36,7 +36,7 @@ public class ListController {
 
 	@GetMapping("/goods")
 	public String proInsert() {
-		return "goods/list";
+		return "goods/save";
 	}
 	@PostMapping("/goods")
 	public @ResponseBody String proInsert(@RequestBody ReqProInsertDto reqProInsertDto) {
@@ -86,37 +86,93 @@ public class ListController {
 
 		return "/list";
 	}
+	
+	@GetMapping("/all")
+	public @ResponseBody List<Pro> all_list() {
+		
+		List<Pro> pros = proRepository.findAll();
+		
+		return pros;
+	}
+	
+	@GetMapping({"/type/{type}"})
+	public ResponseEntity<?> prodtype(@PathVariable String type) {
+		
+		List<Pro> protypes = proRepository.findByType(type);		
 
-//	@GetMapping("/{id}")
-//	public String update(@PathVariable int id, Model model) {
-//		Pro pro = proRepository.findById(id);
-//
-//		model.addAttribute("pro", pro);
-//
-//		return "/";
-//	}
+		return new ResponseEntity<List<Pro>>(protypes, HttpStatus.OK);
+	}
+	
+	@GetMapping({"/sort/{sort}"})
+	public ResponseEntity<?> prodsort(@PathVariable String sort) {
+		
+		List<Pro> prosorts = proRepository.findBySort(sort);		
 
-//	@PutMapping("/")
-//	public @ResponseBody ResponseEntity<?> updateProc(@RequestBody ReqProUpdateDto reqProUpdateDto) {
-//
-//		int result = proRepository.update(reqProUpdateDto);
-//
-//		if (result == 1) {
-//			return new ResponseEntity<String>("ok", HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
-//		}
-//	}
+		return new ResponseEntity<List<Pro>>(prosorts, HttpStatus.OK);
+	}
+	
+	@GetMapping("/order/{type}")
+	public @ResponseBody List<Pro> order_type_list(@PathVariable String type) {
+		
+		List<Pro> pros = proRepository.findByOrderType(type);
+		
+		return pros;
+	}
+	
+	@GetMapping("/price/{type}")
+	public @ResponseBody List<Pro> price_type_list(@PathVariable String type) {
+		
+		List<Pro> pros = proRepository.findByPriceType(type);
+		
+		return pros;
+	}
 
-//	@DeleteMapping("/{id}")
-//	public @ResponseBody ResponseEntity<?> deleteProc(@PathVariable int id) {
-//		int result = proRepository.delete(id);
-//		
-//		if (result == 1) {
-//			return new ResponseEntity<String>("ok", HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
-//	
-//		}
-// }
+	@GetMapping({"/price"})
+	public @ResponseBody List<Pro> all_pricelist() {
+		
+		List<Pro> pros = proRepository.findByPrice();
+		
+		return pros;
+	}
+	
+	@GetMapping({"/order"})
+	public @ResponseBody List<Pro> all_ordercount() {
+		
+		List<Pro> pros = proRepository.findByOrdercount();
+		
+		return pros;
+	}
+
+	@GetMapping("/goods/{id}")
+	public String update(@PathVariable int id, Model model) {
+		Pro pro = proRepository.findById(id);
+
+		model.addAttribute("pro", pro);
+
+		return "goods/update";
+	}
+
+	@PutMapping("/goods/api/update")
+	public @ResponseBody ResponseEntity<?> updateProc(@RequestBody ReqProUpdateDto reqProUpdateDto) {
+
+		int result = proRepository.update(reqProUpdateDto);
+		System.out.println(result);
+		if (result == 1) {
+			return new ResponseEntity<String>("ok", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@DeleteMapping("/goods/api/delete/{id}")
+	public @ResponseBody ResponseEntity<?> deleteProc(@PathVariable int id) {
+		int result = proRepository.delete(id);
+		
+		if (result == 1) {
+			return new ResponseEntity<String>("ok", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+	
+		}
+ }
 }
