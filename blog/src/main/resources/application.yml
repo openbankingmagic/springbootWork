@@ -10,8 +10,8 @@ spring:
       suffix: .jsp
 
   datasource:
-    url: jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Seoul
-    username: spring
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    username: blog
     password: bitc5600
     driver-class-name: com.mysql.cj.jdbc.Driver
     
