@@ -8,9 +8,9 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-      
+
   datasource:
-    url: jdbc:mysql://localhost:3306/goods?serverTimezone=Asia/Seoul
-    username: goods
+    url: jdbc:mysql://localhost:3306/baseball?serverTimezone=Asia/Seoul
+    username: baseball
     password: bitc5600
-    driver-class-name: com.mysql.cj.jdbc.Driver      
+    driver-class-name: com.mysql.cj.jdbc.Driver
