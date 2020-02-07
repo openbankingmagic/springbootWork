@@ -26,6 +26,8 @@ import com.cos.blog.model.user.dto.ReqJoinDto;
 import com.cos.blog.model.user.dto.ReqLoginDto;
 import com.cos.blog.service.UserService;
 
+// release 커밋연습
+
 @Controller
 public class UserController {
 
