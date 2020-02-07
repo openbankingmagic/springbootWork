@@ -46,7 +46,7 @@ public class UserController {
 	public String login() {
 		return "/user/login";
 	}
-	
+
 	@GetMapping("/user/logout")
 	public String logout() {
 		session.invalidate();
@@ -56,17 +56,12 @@ public class UserController {
 	// 인증, 동일인 체크
 	@GetMapping("/user/profile/{id}")
 	public String profile(@PathVariable int id) {
-		
+
 		User principal = (User) session.getAttribute("principal");
-		
-		if(principal != null) {
-			if(principal.getId() == id) {
-				return "/user/profile";
-			}else {
-				// 잘못된 접근입니다. 권한이 없습니다.
-				return "/user/login";
-			}
-		}else {
+
+		if (principal.getId() == id) {
+			return "/user/profile";
+		} else {
 			// 인증이 되지 않은 사용자입니다. 로그인 해주세요.
 			return "/user/login";
 		}
@@ -84,7 +79,6 @@ public class UserController {
 
 			for (FieldError error : bindingResult.getFieldErrors()) {
 				errorMap.put(error.getField(), error.getDefaultMessage());
-				errorMap.put("username", "한글입력불가");
 			}
 			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
 		}
