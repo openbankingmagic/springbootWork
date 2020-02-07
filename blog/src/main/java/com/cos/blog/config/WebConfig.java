@@ -33,10 +33,10 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new SessionIntercepter())
-			.addPathPatterns("/user/profile/**")
-			.addPathPatterns("/user/write/**")
-			.addPathPatterns("/user/update/**")
-			.addPathPatterns("/user/delete/**");
+					.addPathPatterns("/user/profile/**")
+					.addPathPatterns("/user/write/**")
+					.addPathPatterns("/user/update/**")
+					.addPathPatterns("/user/delete/**");
 		
 		// addExcludePatterns() 제외 시킬 때 사용!!
 	}
