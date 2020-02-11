@@ -22,6 +22,7 @@ import com.cos.blog.model.post.dto.RespListDto;
 import com.cos.blog.model.post.dto.ReqUpdateDto;
 import com.cos.blog.model.post.dto.ReqWriteDto;
 import com.cos.blog.model.user.User;
+import com.cos.blog.service.CommentService;
 import com.cos.blog.service.PostService;
 
 // 시큐리티 구현 완료
@@ -34,6 +35,9 @@ public class PostController {
 	
 	@Autowired
 	private PostService postService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	@GetMapping({"", "/", "/post"})
 	public String posts(Model model) {
@@ -76,7 +80,8 @@ public class PostController {
 	// 인증 체크
 	@GetMapping("/post/detail/{id}")
 	public String detail(@PathVariable int id, Model model) {
-		
+
+		model.addAttribute("comments", commentService.댓글목록보기(id));
 		model.addAttribute("post", postService.상세보기(id));
 		
 		return "/post/detail";

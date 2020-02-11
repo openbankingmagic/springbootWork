@@ -16,8 +16,8 @@ public class RespDetailDto {// 익스텐즈로 상속해도 됨
 	private RespCM status;
 	
 	private int id;
-	private String userId;
-	private String postId;
+	private int userId;
+	private int postId;
 	private String content;
 	private Timestamp createDate;
 	private String username;

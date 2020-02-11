@@ -8,6 +8,7 @@
         select p.id, p.title, p.content, p.userId, p.createDate, u.username 
 		from post p inner join user u 
 		on p.userId = u.id
+		order by p.id desc
 	</select>
 	
 	<select id="findById" resultType="com.cos.blog.model.post.Post">
