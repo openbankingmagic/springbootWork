@@ -40,13 +40,13 @@ public class CommentService {
 		}
 	}
 	
-	public int 댓글삭제(int id) {
+	public int 댓글삭제(int id, User principal) {
 		
 		// 해당 댓글은 누가 썻냐?
 		RespDetailDto comment =commentRepository.findById(id);
 		
 		// 지금 로그인 주체는 누구냐?
-		User principal = (User) session.getAttribute("principal");
+//		User principal = (User) session.getAttribute("principal");
 		
 		if(comment.getUserId() == principal.getId()) {
 			return commentRepository.delete(id); // 1, 0, -1

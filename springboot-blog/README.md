@@ -32,11 +32,22 @@ use spring;
 ```
 
 ```sql
+use spring;
+
+drop table comment;
+drop table post;
+drop table user;
+
+commit;
+```
+
+```sql
 CREATE TABLE user(
 	id int auto_increment primary key,
     username varchar(100) unique not null,
     password varchar(100) not null,
     email varchar(100),
+    role varchar(100),
     profile varchar(200),
     createDate timestamp
 ) engine=InnoDB default charset=utf8;
@@ -63,4 +74,12 @@ CREATE TABLE comment(
     foreign key (userId) references user (id) on delete set null,
     foreign key (postId) references post (id) on delete cascade
 ) engine=InnoDB default charset=utf8;
+```
+
+```sql
+SELECT * FROM spring.user;
+
+update user set role='ADMIN' where id = 2;
+
+commit;
 ```

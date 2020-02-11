@@ -3,6 +3,7 @@ package com.cos.blog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cos.blog.model.RespCM;
 import com.cos.blog.model.comment.dto.ReqDetailDto;
 import com.cos.blog.model.comment.dto.RespDetailDto;
+import com.cos.blog.model.user.User;
 import com.cos.blog.service.CommentService;
 
 // @Controller + @ResponseBody
@@ -37,9 +39,9 @@ public class CommentController {
 	}
 	
 	@DeleteMapping("/comment/delete/{id}")
-	public ResponseEntity<?> delete(@PathVariable int id) {
+	public ResponseEntity<?> delete(@PathVariable int id, @AuthenticationPrincipal User principal) {
 		
-		int result = commentService.댓글삭제(id);
+		int result = commentService.댓글삭제(id, principal);
 		
 		// 해당 댓글은 누가 썻냐?
 		

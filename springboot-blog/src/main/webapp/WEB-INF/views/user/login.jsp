@@ -31,14 +31,18 @@
 
 		$.ajax({
 			type: 'POST',
-			url: '/user/login',
-			data: JSON.stringify(data),
-			contentType : 'application/json; charset=utf-8',
+			url: '/user/loginProc',
+			data: data,  // username=ssar&password=1234
+			contentType : 'application/x-www-form-urlencoded',
 			dataType : 'json'
 		}).done(function(r){
+			alert(r.statusCode);
+			console.log(r);
+			console.log(r.statusCode);
 			alert("로그인 성공");
 			location.href = '/';
 		}).fail(function(r){
+			console.log(r);
 			alert("로그인 실패");
 		});
 	});
