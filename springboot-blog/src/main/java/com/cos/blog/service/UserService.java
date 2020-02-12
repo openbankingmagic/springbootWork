@@ -3,6 +3,7 @@ package com.cos.blog.service;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,7 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private HttpSession session;
+	private MyUserdetailService UserDetailsService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -52,14 +53,15 @@ public class UserService {
 		return userRepository.findByUsernameAndPassword(dto);
 	}
 	
-	public int 수정완료(int id, String password, String profile, User principal) {
+	public int 수정완료(int id, String password, String profile) {
+		
+		User principal = UserDetailsService.getPrincipal();
 		
 		String encodePassword = passwordEncoder.encode(password);
 		int result = userRepository.update(id, password, profile);
 		
 		if(result == 1) { // 수정 성공
 			User user = userRepository.findById(id);
-			session.setAttribute("principal", user);
 			principal.setProfile(user.getProfile());
 			principal.setPassword(user.getPassword());
 			return 1;

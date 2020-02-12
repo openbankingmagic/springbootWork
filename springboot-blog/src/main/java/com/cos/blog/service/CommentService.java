@@ -17,7 +17,7 @@ import com.cos.blog.repository.CommentRepository;
 public class CommentService {
 
 	@Autowired
-	private HttpSession session;
+	private MyUserdetailService userDetailService;
 	
 	@Autowired
 	private CommentRepository commentRepository;
@@ -40,14 +40,14 @@ public class CommentService {
 		}
 	}
 	
-	public int 댓글삭제(int id, User principal) {
+	public int 댓글삭제(int id) {
 		
 		// 해당 댓글은 누가 썻냐?
 		RespDetailDto comment =commentRepository.findById(id);
 		
 		// 지금 로그인 주체는 누구냐?
 //		User principal = (User) session.getAttribute("principal");
-		
+		User principal = userDetailService.getPrincipal();
 		if(comment.getUserId() == principal.getId()) {
 			return commentRepository.delete(id); // 1, 0, -1
 		}else {

@@ -15,11 +15,17 @@ public class MyUserdetailService implements UserDetailsService{
 	@Autowired
 	private UserRepository UserRepository;
 	
+	private User user;
+	
+	public User getPrincipal() {
+		return user;
+	}
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("진입 loadUserByUsername");
 		
-		User user = UserRepository.authentication(username);
+		user = UserRepository.authentication(username);
 		
 
 		// get방식으로 user/login 페이지 하면 안탄다 포스트방식으로 하면 시큐리티 콘픽의 프로세스유알엘에 걸린다.

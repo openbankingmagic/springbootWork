@@ -81,7 +81,7 @@ public class UserController {
 	public @ResponseBody String profile(
 			@RequestParam int id, 
 			@RequestParam String password,
-			@RequestParam MultipartFile profile, @AuthenticationPrincipal User principal){
+			@RequestParam MultipartFile profile){
 		
 		UUID uuid = UUID.randomUUID();
 		String uuidFilename = uuid+"_"+profile.getOriginalFilename();
@@ -94,7 +94,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 		
-		int result = userService.수정완료(id, password, uuidFilename, principal);
+		int result = userService.수정완료(id, password, uuidFilename);
 		
 		StringBuffer sb = new StringBuffer();
 		if(result == 1) {

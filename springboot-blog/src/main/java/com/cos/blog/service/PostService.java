@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.cos.blog.model.ReturnCode;
@@ -22,7 +23,7 @@ public class PostService {
 	private PostRepository postRepository;
 	
 	@Autowired
-	private HttpSession session;
+	private MyUserdetailService UserDetailsService;
 	
 	public int 글쓰기(ReqWriteDto dto) {
 		return postRepository.save(dto);
@@ -36,9 +37,11 @@ public class PostService {
 		return postRepository.findById(id);
 	}
 	
-	public Post 수정하기(int id, User principal) {
+	public Post 수정하기(int id) {
 //		User principal = (User) session.getAttribute("principal");
 		Post post = postRepository.findById(id);
+		
+		User principal =UserDetailsService.getPrincipal();
 		
 		if(principal.getId() == post.getUserId()) {
 			return post;
@@ -48,11 +51,13 @@ public class PostService {
 		
 	}
 	
-	public int 수정완료(ReqUpdateDto dto, User principal) {
+	public int 수정완료(ReqUpdateDto dto) {
 //		User principal = (User) session.getAttribute("principal");
 		Post post = postRepository.findById(dto.getId());
 		
-		if(principal.getId() == post.getUserId()) {
+		User prin = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if(prin.getId() == post.getUserId()) {
 			return postRepository.update(dto); // 1, 0, -1
 		}else {
 			return ReturnCode.권한없음; // -3
@@ -60,11 +65,12 @@ public class PostService {
 	}
 	
 	
-	public int 삭제하기(int id, User principal) {
+	public int 삭제하기(int id) {
 		// 동일인 체크 session의 principal.id == 해당 post.id로 select한 userId값
 //		User principal = (User) session.getAttribute("principal");
 		Post post = postRepository.findById(id);
 		
+		User principal = UserDetailsService.getPrincipal();
 		if(principal.getId() == post.getUserId()) {
 			return postRepository.delete(id);
 		}else {

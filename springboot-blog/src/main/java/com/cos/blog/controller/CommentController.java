@@ -39,9 +39,9 @@ public class CommentController {
 	}
 	
 	@DeleteMapping("/comment/delete/{id}")
-	public ResponseEntity<?> delete(@PathVariable int id, @AuthenticationPrincipal User principal) {
+	public ResponseEntity<?> delete(@PathVariable int id) {
 		
-		int result = commentService.댓글삭제(id, principal);
+		int result = commentService.댓글삭제(id);
 		
 		// 해당 댓글은 누가 썻냐?
 		

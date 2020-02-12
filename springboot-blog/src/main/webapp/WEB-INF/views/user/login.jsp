@@ -21,34 +21,7 @@
 
 </div>
 
-<script>
-	$('#login--submit').on('click', function(e){
-		// e.preventDefault();
-		var data = {
-			username: $('#username').val(),
-			password: $('#password').val()
-		};
-
-		$.ajax({
-			type: 'POST',
-			url: '/user/loginProc',
-			data: data,  // username=ssar&password=1234
-			contentType : 'application/x-www-form-urlencoded',
-			dataType : 'json'
-		}).done(function(r){
-			alert(r.statusCode);
-			console.log(r);
-			console.log(r.statusCode);
-			alert("로그인 성공");
-			location.href = '/';
-		}).fail(function(r){
-			console.log(r);
-			alert("로그인 실패");
-		});
-	});
-
-
-</script>
+<script src="/js/login.js"></script>
 
 <%@include file="../include/footer.jsp"%>
 

@@ -59,7 +59,7 @@
 
 			</ul>
 			<img src="/media/${principal.profile}"  class="rounded-circle my__img ml-auto" 
-			     width="30px" height="30px" onerror="javascript:this.src = '/images/unknown.jpg' " />
+			     width="40px" height="40px" onerror="javascript:this.src = '/images/unknown.jpg' " />
 		</div>
 	</nav>
 	<br />
